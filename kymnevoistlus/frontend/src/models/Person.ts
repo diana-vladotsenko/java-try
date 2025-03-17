@@ -1,5 +1,7 @@
 export type Person = {
     id: number,
     name : string,
-    active: boolean
+    country: string,
+    age: number,
+    totalResult: number
 }
