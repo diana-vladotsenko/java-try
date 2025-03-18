@@ -22,16 +22,18 @@ function App() {
     <h1>People:</h1>
     {person.map(person => 
         <div key={person.id}>
-          {person.name}
-          {person.country}
-          {person.age}
-          {person.totalResult}
+          <div>Name: {person.name}</div>
+          <div>Country:  {person.country}</div>
+          <div>Age:  {person.age}</div>
+          <div>totalResult:  {person.totalResult}</div>
+          ------------------------------
         </div>)}
     <h1>Events:</h1>
     {event.map(event => 
         <div key={event.id}>
-          {event.person.id}
-          {event.result}
+          <div>Person ID: {event.person.id}</div>
+          <div>Result:  {event.result}</div>
+          ------------------------------
         </div>)}
     </>
   )
