@@ -13,7 +13,7 @@ function Events() {
     <div>
         <h1>Võistlused</h1>
         <table style={{ width: "100%", border: "1px solid black" }}>
-                <tr>
+                <tr style={{ border: "1px solid black" }}>
                     <th>Person ID</th>
                     <th>Result</th>
                 </tr>
