@@ -1,25 +1,28 @@
 import './App.css';
-import { Person } from './models/Person';
-import { Event } from './models/Event';
-import { useEffect, useState } from 'react'
+import MainPage  from './pages/MainPage';
+import {Route, Routes} from 'react-router-dom'
+import People from './pages/People';
+import Events from './pages/Events';
+import Menu from './components/Menu';
+
 
 function App() {
-  const [person, setPersons] = useState<Person[]>([]);
-  const [event, setEvents] = useState<Event[]>([]);
-  useEffect(() =>{  
-    fetch("http://localhost:8080/persons") 
-    .then (res => res.json()) 
-    .then (json => setPersons(json))
-  },[]);
-  useEffect(() =>{  
-    fetch("http://localhost:8080/events") 
-    .then (res => res.json()) 
-    .then (json => setEvents(json))
-  },[]);
+  // const [person, setPersons] = useState<Person[]>([]);
+  // const [event, setEvents] = useState<Event[]>([]);
+  // useEffect(() =>{  
+  //   fetch("http://localhost:8080/persons") 
+  //   .then (res => res.json()) 
+  //   .then (json => setPersons(json))
+  // },[]);
+  // useEffect(() =>{  
+  //   fetch("http://localhost:8080/events") 
+  //   .then (res => res.json()) 
+  //   .then (json => setEvents(json))
+  // },[]);
 
   return (
     <>
-    <h1>People:</h1>
+    {/* <h1>People:</h1>
     {person.map(person => 
         <div key={person.id}>
           <div>Name: {person.name}</div>
@@ -34,7 +37,15 @@ function App() {
           <div>Person ID: {event.person.id}</div>
           <div>Result:  {event.result}</div>
           ------------------------------
-        </div>)}
+        </div>)} */}
+
+        <Menu/>
+        <Routes>
+          <Route path="/" element={<MainPage/>}/>
+          <Route path="/people" element={<People/>}/>
+          <Route path="/events" element={<Events/>}/>
+          <Route path="/*" element={ <div>Page Not Found</div> } />
+        </Routes>
     </>
   )
 }
